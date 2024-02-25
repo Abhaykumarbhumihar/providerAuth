@@ -26,7 +26,7 @@ class SignInPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 16.0),
                  TextField(
-                  controller: provider.passwrdController,
+                  controller: provider.passwordController,
                   decoration: const InputDecoration(
                     labelText: 'Password',
                     border: const OutlineInputBorder(),
@@ -37,7 +37,7 @@ class SignInPage extends StatelessWidget {
                   Center(
                 child: ElevatedButton(
                     onPressed: () {
-                     provider.saveUser();
+                     //provider.();
                     },
                     style: ElevatedButton.styleFrom(
                       elevation: 2.0,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider_auth/scree/login.dart';
-import 'package:provider_auth/scree/sign_in.dart';
+import 'package:provider_auth/screen/login.dart';
+import 'package:provider_auth/screen/sign_in.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

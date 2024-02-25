@@ -1,24 +1,30 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:provider_auth/repositery.dart';
+import 'package:provider_auth/authsource/auth_entity.dart';
+import 'package:get_it/get_it.dart';
 
 
-class AuthProvider  with ChangeNotifier{
-   final AuthRepository _repository;
 
-   AuthProvider(this._repository);
-TextEditingController emailController=TextEditingController();
-TextEditingController passwrdController=TextEditingController();
+import '../authsource/auth_use_case.dart';
+class AuthProvider extends ChangeNotifier {
+  final AuthUseCase _authUseCase = GetIt.I.get<AuthUseCase>();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
-saveUser()async{
-  var email=emailController.text.toString().trim();
-  var passwrod=passwrdController.text.toString().trim();
-  print(email+" "+passwrod);
-var data= await _repository.loginUser(email, email);
-print(data);
+  void loginUser() async {
+    final authEntity = AuthEntity(
+      emailController.text.trim(),
+      passwordController.text.trim(),
+    );
 
+    try {
+      var dataa=await _authUseCase.loginUser(authEntity);
+      print(dataa);
+     
+    } catch (e) {
+      // Handle error
+    }
+  }
 }
 
-}
